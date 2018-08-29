@@ -1,7 +1,11 @@
 package com.inspur.cmis.action;
 
+import com.inspur.cmis.entity.CicustbasinfoEntity;
 import com.inspur.cmis.entity.GccontractmainEntity;
+import com.inspur.cmis.entity.GroupEntity;
+import com.inspur.cmis.service.CiCustBaseService;
 import com.inspur.cmis.service.GcContractService;
+import com.inspur.cmis.service.GroupService;
 import com.inspur.common.action.BaseAction;
 import com.inspur.common.entity.JsonResult;
 import com.inspur.common.entity.PaginationBean;
@@ -9,6 +13,8 @@ import com.inspur.common.util.GsonUtils;
 import com.inspur.common.util.HQLHelper;
 import com.inspur.common.util.IsNullUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 /**
  * Created by LiuLiHao on 2018年8月27日15:48:23
@@ -20,7 +26,10 @@ public class GcContractAction extends BaseAction {
 
     @Autowired
     private GcContractService gcContractService;
-
+    @Autowired
+    private GroupService groupService;
+    @Autowired
+    private CiCustBaseService ciCustBaseService;
     /**
      * 列表
      * @return
@@ -33,9 +42,13 @@ public class GcContractAction extends BaseAction {
             page = currentPage;
         }
         //条件查询
-        if (entity!=null && IsNullUtils.isNotNull(entity.getAppcode())){
-            hqlHelper.addWhere(" o.appcode = ?",entity.getAppcode());
-            request.setAttribute("appcode",entity.getAppcode());
+        if (entity!=null && IsNullUtils.isNotNull(entity.getCustid())){
+            hqlHelper.addWhere(" o.custid = ?",entity.getCustid());
+            request.setAttribute("custId",entity.getCustid());
+        }
+        if (entity!=null && IsNullUtils.isNotNull(entity.getCustname())){
+            hqlHelper.addWhere(" o.custid = ?",entity.getCustname());
+            request.setAttribute("custName",entity.getCustname());
         }
         //设置页数
         PaginationBean pageBean = gcContractService.getPageBean(hqlHelper, page);
@@ -49,6 +62,14 @@ public class GcContractAction extends BaseAction {
      * @return
      */
     public String contractAddHtml(){
+        //查询所有机构
+        List<GroupEntity> list = groupService.findAllUseable();
+        request.setAttribute("groups",list);
+
+        List<CicustbasinfoEntity> infos = ciCustBaseService.findAll();
+        //客户信息
+        request.setAttribute("infos",infos);
+
         return "contractAddHtml";
     }
 
@@ -59,9 +80,14 @@ public class GcContractAction extends BaseAction {
     public String contractAdd(){
         JsonResult jsonResult = new JsonResult(0,"添加失败");
 
-        //if (IsNullUtils.isNotNull(entity.getAppcode(),entity.getMoney() )){
-            gcContractService.add(entity);
-        //}
+        Integer custid = Integer.valueOf(entity.getCustid());
+        CicustbasinfoEntity ciCustBase = ciCustBaseService.findObjectById(custid);
+        if (ciCustBase!=null){
+            //设置客户姓名
+            entity.setCustname(ciCustBase.getCname());
+        }
+
+        gcContractService.add(entity);
         jsonResult = new JsonResult(1,"添加成功");
         result = GsonUtils.toJson(jsonResult);
 

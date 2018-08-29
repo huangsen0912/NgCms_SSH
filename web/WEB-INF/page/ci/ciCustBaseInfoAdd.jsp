@@ -52,6 +52,7 @@
             <li><label>客户名称</label>
                 <input name="entity.cname" req="req" msg="客户名称" type="text" class="dfinput" value=""/>
             </li>
+
             <li><label>客户类型</label>
                 <cite>
                     <select id="custType" class="dfselect1" name="entity.custtype">

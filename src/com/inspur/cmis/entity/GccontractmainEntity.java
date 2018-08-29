@@ -16,7 +16,11 @@ public class GccontractmainEntity {
     private Integer id;
     private String keycode;
     private String keytype;
+    private Integer custid;
     private String extendkeycode;
+    //业务品种
+    private String bustype;
+
     private String appcode;
     private Double money;
     private String currency;
@@ -139,8 +143,35 @@ public class GccontractmainEntity {
      */
     private String loanpurposeremark;
     private String instcode;
+    private String remark;
+
     private Date operdatetime;
     private String operator;
+    private String custname;
+
+    public String getCustname() {
+        return custname;
+    }
+
+    public void setCustname(String custname) {
+        this.custname = custname;
+    }
+
+    public Integer getCustid() {
+        return custid;
+    }
+
+    public void setCustid(Integer custid) {
+        this.custid = custid;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
 
     public Integer getId() {
         return id;
@@ -152,6 +183,14 @@ public class GccontractmainEntity {
 
     public String getKeycode() {
         return keycode;
+    }
+
+    public String getBustype() {
+        return bustype;
+    }
+
+    public void setBustype(String bustype) {
+        this.bustype = bustype;
     }
 
     public void setKeycode(String keycode) {

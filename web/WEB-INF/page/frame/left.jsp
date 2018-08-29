@@ -68,7 +68,7 @@
         </div>
         <ul class="menuson">
             <li><cite></cite><a href="/contractAction_contractInfo.action" target="rightFrame">合同签订</a><i></i></li>
-            <li><cite></cite><a href="gc/gcCredit.html" target="rightFrame">贷款发放</a><i></i></li>
+            <li><cite></cite><a href="/gcCreditAction_creditInfo.action" target="rightFrame">贷款发放</a><i></i></li>
         </ul>
     </dd>
     <dd>

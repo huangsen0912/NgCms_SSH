@@ -4,13 +4,13 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<!--授信-->
-	<package name="creditAction" namespace="/" extends="abstract_struts">
-		<action name="creditAction_*" class="com.inspur.cmis.action.GcCreditAction" method="{1}">
+	<!--贷款发放-->
+	<package name="gcCreditAction" namespace="/" extends="abstract_struts">
+		<action name="gcCreditAction_*" class="com.inspur.cmis.action.GcCreditAction" method="{1}">
 			<!--列表-->
-			<result name="creditInfo">/WEB-INF/page/gc/gcCredit.jsp</result>
-			<!--添加页面-->
-			<result name="creditAddHtml">/WEB-INF/page/gc/gcCreditAdd.jsp</result>
+			<result name="gcCreditInfo">/WEB-INF/page/gc/gcCredit.jsp</result>
+			<!--凭证添加页面-->
+			<result name="gcCreditAddHtml">/WEB-INF/page/gc/gcCreditAdd.jsp</result>
 			<!--ajax 添加-->
 			<!--<result name="contractAdd" type="json">-->
 				<!--<param name="root">result</param>-->

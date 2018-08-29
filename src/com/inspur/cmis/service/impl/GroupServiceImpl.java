@@ -30,7 +30,8 @@ public class GroupServiceImpl extends BaseServiceImpl<GroupEntity> implements Gr
     @Override
     @Transactional(readOnly = true)
     public List<GroupEntity> findAll() {
-        List<GroupEntity> list = groupDao.list("FROM GroupEntity u ", null);
+        //查询所有可用的
+        List<GroupEntity> list = groupDao.list("FROM GroupEntity u where ", null);
         return list;
     }
 

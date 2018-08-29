@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created by LiuLiHao on 2018年8月28日11:03:57
- * 描述： 授信
+ * 描述： 贷款发放
  * 作者： LiuLiHao
  */
 public class GcCreditAction extends BaseAction {

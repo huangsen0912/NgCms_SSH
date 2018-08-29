@@ -117,8 +117,19 @@
             <li><label>主办客户经理 </label>
                 <input name="entity.busimanager" type="text" class="dfinput"  value="${entity.busimanager}"/>
             </li>
-            <li><label>所属机构</label>
-                <input name="" type="text" class="dfinput"  value="业务部"/>
+            <li>
+                <label>所属机构</label>
+                <c:if test="${groups==null}">
+                    没有任何机构信息
+                </c:if>
+                <c:if test="${groups!=null}">
+                    <select class="dfselect" id="group" name="entity.groupid">
+                        <option value="0">请选择</option>
+                        <s:iterator value="#request.groups">
+                            <option value="${id}" <c:if test="${entity.groupid== id}">selected="selected"</c:if>>${name}</option>
+                        </s:iterator>
+                    </select>
+                </c:if>
             </li>
             <li><label>建户日期 </label>
                 <input name="entity.inputdate" id="createDate" type="text" class="dfinput"

@@ -37,7 +37,7 @@
 <div class="place">
     <span>位置：</span>
     <ul class="placeul">
-        <li><a href="javascript:;">合同信息护</a></li>
+        <li><a href="/contractAction_contractInfo.action">合同信息护</a></li>
         <li><a href="javascript:;">添加</a></li>
     </ul>
 </div>
@@ -47,16 +47,34 @@
         <div class="formtitle"><span>合同基本信息</span></div>
 
         <ul class="forminfo">
-            <li><label>客户编号</label>
-                <input req="req" msg="客户编号" name="entity.appcode" type="text" class="dfinput"/>
-            </li>
-            <li><label>客户名称</label>
-                <input name="" type="text" class="dfinput" value=""/>
-            </li>
+            <%--<li><label>客户编号</label>--%>
+                <%--<input req="req" msg="客户编号" name="entity.appcode" type="text" class="dfinput"/>--%>
+            <%--</li>--%>
+            <%--<li><label>客户名称</label>--%>
+                <%--<input name="" type="text" class="dfinput" value=""/>--%>
+            <%--</li>--%>
+                <li>
+                    <label>客户列表</label>
+                    <cite>
+                        <c:if test="${infos==null}">
+                            没有任何客户信息
+                        </c:if>
+                        <c:if test="${infos!=null}">
+                            <select class="dfselect" id="group" req="req" msg="客户" name="entity.custid">
+                                <option value="0" selected>请选择客户</option>
+                                <s:iterator value="#request.infos">
+                                    <option value="${id}">${cname}</option>
+                                </s:iterator>
+                            </select>
+                        </c:if>
+                    </cite>
+                </li>
+
             <li><label>业务品种</label>
                 <cite>
-                    <select class="dfselect1">
-                        <option value="00" selected="selected">个人经营类贷款</option>
+                    <select class="dfselect1" id="busType" name="entity.bustype">
+                        <option value="0" selected="selected">请选择业务品种</option>
+                        <option value="00">个人经营类贷款</option>
                         <option value="01">个人消费类贷款</option>
                         <option value="02">个人购房贷款</option>
                         <option value="03">助学贷款</option>
@@ -70,7 +88,7 @@
             </li>
             <li>
                 <label>合同编号</label>
-                <input name="" type="text" class="dfinput" value=""/>
+                <input name="entity.instcode" type="text" class="dfinput" value=""/>
             </li>
             <li>
                 <label>金额</label>
@@ -103,7 +121,7 @@
             </li>
             <li>
                 <label>期限(月)</label>
-                <input name="" type="text" class="dfinput" value=""/>
+                <input name="entity.climit" type="text" class="dfinput" value=""/>
             </li>
             <li>
                 <label>利率类型</label>
@@ -160,10 +178,13 @@
                 <option value="01">信用</option>
             </select></cite></li>
 
-            <li><label>资金支付方式</label><cite><select class="dfselect1">
-                <option value="00" selected>自助支付</option>
-                <option value="01">受托支付</option>
-            </select></cite></li>
+            <li><label>资金支付方式</label><cite>
+                <select class="dfselect1">
+                    <option value="00" selected>自助支付</option>
+                    <option value="01">受托支付</option>
+                </select>
+            </cite>
+            </li>
 
             <li>
                 <label>合同份数</label>
@@ -171,15 +192,25 @@
             </li>
             <li>
                 <label>备注</label>
-                <input name="" type="text" class="dfinput"  value=""/>
+                <input name="entity.remark" type="text" class="dfinput"  value=""/>
             </li>
             <li>
                 <label>主办客户经理 </label>
-                <input name="" type="text" class="dfinput"  value=""/>
+                <input name="entity.assistbusimanager" type="text" class="dfinput"  value=""/>
             </li>
             <li>
                 <label>所属机构</label>
-                <input name="" id="tips"  type="text" class="dfinput"  value="公司业务部"/>
+                <c:if test="${groups==null}">
+                    没有任何机构信息
+                </c:if>
+                <c:if test="${groups!=null}">
+                    <select class="dfselect" id="group" name="entity.groupid">
+                        <option value="0">请选择</option>
+                        <s:iterator value="#request.groups">
+                            <option value="${id}">${name}</option>
+                        </s:iterator>
+                    </select>
+                </c:if>
             </li>
 
             <li>&nbsp;&nbsp;
@@ -211,6 +242,17 @@
     function checkForm() {
         //检查表单
         var flag =  formValueCheckTips('form');
+
+        if($("#group").val()=='0'){
+            layer.msg("请选择客户");
+            return;
+        }
+        //业务品种 busType
+        if($("#busType").val()=='0'){
+            layer.msg("请选择业务品种");
+            return;
+        }
+
         if (flag){
             var fromData = $("#form").serialize();
             //请求接口

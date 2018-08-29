@@ -4,7 +4,8 @@ import java.sql.Timestamp;
 
 /**
  * Created by LiuLiHao on 2018/8/28 13:21.
- * 描述：
+ * 描述： gc凭证信息
+ * 需要添加一些字段使用
  * 作者： LiuLiHao
  */
 public class CilicensecertificateEntity {

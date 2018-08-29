@@ -58,7 +58,7 @@
                         没有任何客户信息
                     </c:if>
                     <c:if test="${infos!=null}">
-                        <select class="dfselect" id="group" req="req" msg="客户" name="entity.custid">
+                        <select class="dfselect" id="kehu" req="req" msg="客户" name="entity.custid">
                             <option value="0" selected>请选择客户</option>
                             <s:iterator value="#request.infos">
                                 <option value="${id}">${cname}</option>
@@ -189,7 +189,17 @@
             </li>
             <li>
                 <label>所属机构</label>
-                <input name="" id="tips" type="text" class="dfinput" value=""/>
+                <c:if test="${groups==null}">
+                    没有任何机构信息
+                </c:if>
+                <c:if test="${groups!=null}">
+                    <select class="dfselect" id="group" name="entity.groupid">
+                        <option value="0">请选择</option>
+                        <s:iterator value="#request.groups">
+                            <option value="${id}">${name}</option>
+                        </s:iterator>
+                    </select>
+                </c:if>
             </li>
 
             <li>&nbsp;&nbsp;
@@ -208,8 +218,12 @@
     function checkForm() {
         //检查表单
         var flag =  formValueCheckTips('form');
-        if ($("#group").val()=='0'){
+        if ($("#kehu").val()=='0'){
             layer.msg('请选择客户');
+            return false;
+        }
+        if ($("#group").val()=='0'){
+            layer.msg('请选择机构');
             return false;
         }
         if (flag){

@@ -95,11 +95,15 @@
 
             <li>
                 <label>客户编号</label>
-                <input name="entity.appcode" type="text" class="scinput" value="${appcode}" />
+                <input name="entity.custid" type="text" class="scinput" value="${custId}" />
             </li>
-            <li><label>客户名称</label><input name="" type="text" class="scinput" /></li>
+            <li>
+                <label>客户名称</label>
+                <input name="entity.custname" type="text" class="scinput" value="${custName}" />
+            </li>
             <li><label>审批书号</label><input name="" type="text" class="scinput" /></li>
-            <li><label>&nbsp;</label>
+            <li>
+                <label>&nbsp;</label>
                 <input type="submit" class="scbtn" value="查询"/>
             </li>
         </ul>
@@ -141,13 +145,64 @@
                     <td>
                         <input name="ids" type="radio" value="${id}"/>
                     </td>
-                    <td>${appcode}</td>
-                    <td>${id}</td>
-                    <td>${id}</td>
-                    <td>${currency}</td>
-                    <td>${id}</td>
-                    <td>${startdate}</td>
-                    <td>${enddate}</td>
+                    <td>${custid}</td>
+                    <td>
+                        <c:if test="${bustype=='00'}">
+                            个人经营类贷款
+                        </c:if>
+                        <c:if test="${bustype=='01'}">
+                            个人消费类贷款
+                        </c:if>
+                        <c:if test="${bustype=='02'}">
+                            个人购房贷款
+                        </c:if>
+                        <c:if test="${bustype=='02'}">
+                            助学贷款
+                        </c:if>
+                        <c:if test="${bustype=='02'}">
+                            个人其他贷款
+                        </c:if>
+                    </td>
+                    <td>${money}</td>
+                    <td>
+                        <c:if test="${currency=='CNY'}">
+                            人民币
+                        </c:if>
+                        <c:if test="${currency=='USD'}">
+                            美元
+                        </c:if>
+                        <c:if test="${currency=='EUR'}">
+                            欧元
+                        </c:if>
+                        <c:if test="${currency=='HKD'}">
+                            港元
+                        </c:if>
+                        <c:if test="${currency=='DEM'}">
+                            德国马克
+                        </c:if>
+                        <c:if test="${currency=='AUD'}">
+                            澳大利亚元
+                        </c:if>
+                        <c:if test="${currency=='CAD'}">
+                            加拿大元
+                        </c:if>
+                        <c:if test="${currency=='SEK'}">
+                            瑞典克朗
+                        </c:if>
+                        <c:if test="${currency=='SGD'}">
+                            新加坡元
+                        </c:if>
+                        <c:if test="${currency=='NZD'}">
+                            新西兰元
+                        </c:if>
+                    </td>
+                    <td></td>
+                    <td>
+                        <fmt:formatDate value="${startdate}" pattern="yyyy-MM-dd"/>
+                    </td>
+                    <td>
+                        <fmt:formatDate value="${enddate}" pattern="yyyy-MM-dd"/>
+                    </td>
                 </tr>
             </s:iterator>
 

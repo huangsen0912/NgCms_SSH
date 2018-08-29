@@ -66,7 +66,7 @@ public class CiCustBaseAction extends BaseAction {
      */
     public String ciCustBaseAddHtml() {
         //查询所有机构
-        List<GroupEntity> list = groupService.findAll();
+        List<GroupEntity> list = groupService.findAllUseable();
         request.setAttribute("groups",list);
         return "ciCustBaseAddHtml";
     }
@@ -92,6 +92,10 @@ public class CiCustBaseAction extends BaseAction {
         if (entityId!=null && entityId>0){
             CicustbasinfoEntity entity = ciCustBaseService.findObjectById(entityId);
             request.setAttribute("entity", entity);
+            //查询所有机构
+            List<GroupEntity> list = groupService.findAllUseable();
+            request.setAttribute("groups",list);
+
         }
         return "ciCustBaseUpdateHtml";
     }

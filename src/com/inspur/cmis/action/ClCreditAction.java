@@ -2,8 +2,10 @@ package com.inspur.cmis.action;
 
 import com.inspur.cmis.entity.CicustbasinfoEntity;
 import com.inspur.cmis.entity.GcloancreditEntity;
+import com.inspur.cmis.entity.GroupEntity;
 import com.inspur.cmis.service.CiCustBaseService;
 import com.inspur.cmis.service.ClCreditService;
+import com.inspur.cmis.service.GroupService;
 import com.inspur.common.action.BaseAction;
 import com.inspur.common.entity.JsonResult;
 import com.inspur.common.entity.PaginationBean;
@@ -28,6 +30,8 @@ public class ClCreditAction extends BaseAction {
     private ClCreditService clCreditService;
     @Autowired
     private CiCustBaseService ciCustBaseService;
+    @Autowired
+    private GroupService groupService;
 
     /**
      * 列表
@@ -42,7 +46,7 @@ public class ClCreditAction extends BaseAction {
             page = currentPage;
         }
         //条件查询
-        if (entity!=null && entity.getCustid()!=null){
+        if (entity!=null && IsNullUtils.isNotNull(entity.getCustid())){
             hqlHelper.addWhere(" o.custid like ? ",entity.getCustid()+"%");
             request.setAttribute("custid",entity.getCustid());
         }
@@ -76,6 +80,10 @@ public class ClCreditAction extends BaseAction {
         //客户信息
         request.setAttribute("infos",list);
 
+        //查询所有机构
+        List<GroupEntity> groups = groupService.findAllUseable();
+        request.setAttribute("groups",groups);
+
         return "creditAddHtml";
     }
 
@@ -89,6 +97,11 @@ public class ClCreditAction extends BaseAction {
             GcloancreditEntity entity = clCreditService.findObjectById(entityId);
             request.setAttribute("updateEntity", entity);
             List<CicustbasinfoEntity> list = ciCustBaseService.findAll();
+
+            //查询所有机构
+            List<GroupEntity> groups = groupService.findAllUseable();
+            request.setAttribute("groups",groups);
+
             //客户信息
             request.setAttribute("infos",list);
         }

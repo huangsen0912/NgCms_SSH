@@ -75,7 +75,9 @@
             </thead>
             <thead>
             <tr>
-                <th><input name="" type="radio" value=""/></th>
+                <th>
+                    <input name="" type="radio" value=""/>
+                </th>
                 <th>合同编号</th>
                 <th>客户名称</th>
                 <th>合同类型</th>
@@ -89,7 +91,9 @@
             </thead>
             <tbody>
             <tr>
-                <td><input name="" type="radio" value="" /></td>
+                <td>
+                    <input name="" type="radio" value="" />
+                </td>
                 <td style="text-align:center">2000003703</td>
                 <td style="text-align:center">桃城三厂</td>
                 <td style="text-align:center">流动资金借款合同</td>
