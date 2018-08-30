@@ -6,7 +6,7 @@
 <struts>
 	<!--合同-->
 	<package name="contractAction" namespace="/" extends="abstract_struts">
-		<action name="contractAction_*" class="com.inspur.cmis.action.GcContractAction" method="{1}">
+		<action name="contractAction_*" class="com.inspur.cmis.action.gc.GcContractAction" method="{1}">
 			<!--列表-->
 			<result name="contractInfo">/WEB-INF/page/gc/gcContractList.jsp</result>
 			<!--添加页面-->

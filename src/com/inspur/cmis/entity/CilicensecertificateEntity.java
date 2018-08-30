@@ -1,6 +1,10 @@
 package com.inspur.cmis.entity;
 
-import java.sql.Timestamp;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.util.Date;
 
 /**
  * Created by LiuLiHao on 2018/8/28 13:21.
@@ -8,20 +12,36 @@ import java.sql.Timestamp;
  * 需要添加一些字段使用
  * 作者： LiuLiHao
  */
+@Entity
+@Table(name = "Ci_LicenseCertiFicate")
 public class CilicensecertificateEntity {
+    @Id
+    @GeneratedValue
     private String id;
     private String custid;
+    private String custname;
+    private String bustype;
+    private String contractno;
+    private String certno;
+    private Double money;
+    private String currency;
+    //还款方式
     private String certtype;
+    //利率
+    private String certlevel;
+    private String usedetail;
+    private String busmanager;
+    private Integer groupid;
+
     private String certname;
     private String certid;
     private String issuingagency;
-    private String certlevel;
-    private String startdate;
-    private String enddate;
+    private Date startdate;
+    private Date enddate;
     private String summary;
     private String operator;
     private String instcitycode;
-    private Timestamp operdatetime;
+    private Date operdatetime;
 
     public String getId() {
         return id;
@@ -39,12 +59,92 @@ public class CilicensecertificateEntity {
         this.custid = custid;
     }
 
+    public String getCustname() {
+        return custname;
+    }
+
+    public void setCustname(String custname) {
+        this.custname = custname;
+    }
+
+    public String getBustype() {
+        return bustype;
+    }
+
+    public void setBustype(String bustype) {
+        this.bustype = bustype;
+    }
+
+    public String getContractno() {
+        return contractno;
+    }
+
+    public void setContractno(String contractno) {
+        this.contractno = contractno;
+    }
+
+    public String getCertno() {
+        return certno;
+    }
+
+    public void setCertno(String certno) {
+        this.certno = certno;
+    }
+
+    public Double getMoney() {
+        return money;
+    }
+
+    public void setMoney(Double money) {
+        this.money = money;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
     public String getCerttype() {
         return certtype;
     }
 
     public void setCerttype(String certtype) {
         this.certtype = certtype;
+    }
+
+    public String getCertlevel() {
+        return certlevel;
+    }
+
+    public void setCertlevel(String certlevel) {
+        this.certlevel = certlevel;
+    }
+
+    public String getUsedetail() {
+        return usedetail;
+    }
+
+    public void setUsedetail(String usedetail) {
+        this.usedetail = usedetail;
+    }
+
+    public String getBusmanager() {
+        return busmanager;
+    }
+
+    public void setBusmanager(String busmanager) {
+        this.busmanager = busmanager;
+    }
+
+    public Integer getGroupid() {
+        return groupid;
+    }
+
+    public void setGroupid(Integer groupid) {
+        this.groupid = groupid;
     }
 
     public String getCertname() {
@@ -71,27 +171,19 @@ public class CilicensecertificateEntity {
         this.issuingagency = issuingagency;
     }
 
-    public String getCertlevel() {
-        return certlevel;
-    }
-
-    public void setCertlevel(String certlevel) {
-        this.certlevel = certlevel;
-    }
-
-    public String getStartdate() {
+    public Date getStartdate() {
         return startdate;
     }
 
-    public void setStartdate(String startdate) {
+    public void setStartdate(Date startdate) {
         this.startdate = startdate;
     }
 
-    public String getEnddate() {
+    public Date getEnddate() {
         return enddate;
     }
 
-    public void setEnddate(String enddate) {
+    public void setEnddate(Date enddate) {
         this.enddate = enddate;
     }
 
@@ -119,54 +211,11 @@ public class CilicensecertificateEntity {
         this.instcitycode = instcitycode;
     }
 
-    public Timestamp getOperdatetime() {
+    public Date getOperdatetime() {
         return operdatetime;
     }
 
-    public void setOperdatetime(Timestamp operdatetime) {
+    public void setOperdatetime(Date operdatetime) {
         this.operdatetime = operdatetime;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        CilicensecertificateEntity that = (CilicensecertificateEntity) o;
-
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
-        if (custid != null ? !custid.equals(that.custid) : that.custid != null) return false;
-        if (certtype != null ? !certtype.equals(that.certtype) : that.certtype != null) return false;
-        if (certname != null ? !certname.equals(that.certname) : that.certname != null) return false;
-        if (certid != null ? !certid.equals(that.certid) : that.certid != null) return false;
-        if (issuingagency != null ? !issuingagency.equals(that.issuingagency) : that.issuingagency != null)
-            return false;
-        if (certlevel != null ? !certlevel.equals(that.certlevel) : that.certlevel != null) return false;
-        if (startdate != null ? !startdate.equals(that.startdate) : that.startdate != null) return false;
-        if (enddate != null ? !enddate.equals(that.enddate) : that.enddate != null) return false;
-        if (summary != null ? !summary.equals(that.summary) : that.summary != null) return false;
-        if (operator != null ? !operator.equals(that.operator) : that.operator != null) return false;
-        if (instcitycode != null ? !instcitycode.equals(that.instcitycode) : that.instcitycode != null) return false;
-        if (operdatetime != null ? !operdatetime.equals(that.operdatetime) : that.operdatetime != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (custid != null ? custid.hashCode() : 0);
-        result = 31 * result + (certtype != null ? certtype.hashCode() : 0);
-        result = 31 * result + (certname != null ? certname.hashCode() : 0);
-        result = 31 * result + (certid != null ? certid.hashCode() : 0);
-        result = 31 * result + (issuingagency != null ? issuingagency.hashCode() : 0);
-        result = 31 * result + (certlevel != null ? certlevel.hashCode() : 0);
-        result = 31 * result + (startdate != null ? startdate.hashCode() : 0);
-        result = 31 * result + (enddate != null ? enddate.hashCode() : 0);
-        result = 31 * result + (summary != null ? summary.hashCode() : 0);
-        result = 31 * result + (operator != null ? operator.hashCode() : 0);
-        result = 31 * result + (instcitycode != null ? instcitycode.hashCode() : 0);
-        result = 31 * result + (operdatetime != null ? operdatetime.hashCode() : 0);
-        return result;
     }
 }

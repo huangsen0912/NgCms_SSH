@@ -6,7 +6,7 @@
 <struts>
 	<!--贷款发放-->
 	<package name="gcCreditAction" namespace="/" extends="abstract_struts">
-		<action name="gcCreditAction_*" class="com.inspur.cmis.action.GcCreditAction" method="{1}">
+		<action name="gcCreditAction_*" class="com.inspur.cmis.action.gc.GcCreditAction" method="{1}">
 			<!--列表-->
 			<result name="gcCreditInfo">/WEB-INF/page/gc/gcCredit.jsp</result>
 			<!--凭证添加页面-->

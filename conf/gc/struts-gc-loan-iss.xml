@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!--合同-->
+	<package name="loanIssAction" namespace="/" extends="abstract_struts">
+		<action name="loanIssAction_*" class="com.inspur.cmis.action.gc.GcLoanIssuanceAction" method="{1}">
+			<!--列表-->
+			<result name="loanIssuanceInfo">/WEB-INF/page/gc/gcCredit.jsp</result>
+
+		</action>
+	</package>
+</struts>

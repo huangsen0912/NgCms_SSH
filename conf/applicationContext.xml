@@ -49,6 +49,9 @@
                 <value>com.inspur.cmis.entity.GcloancreditEntity</value>
                 <!--对公客户-->
                 <value>com.inspur.cmis.entity.CicustbasinfoEntity</value>
+                <!--gc凭证信息-->
+                <value>com.inspur.cmis.entity.CilicensecertificateEntity</value>
+
             </list>
         </property>
     </bean>

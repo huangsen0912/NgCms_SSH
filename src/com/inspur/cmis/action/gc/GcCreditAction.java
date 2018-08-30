@@ -1,4 +1,4 @@
-package com.inspur.cmis.action;
+package com.inspur.cmis.action.gc;
 
 import com.inspur.cmis.entity.GccontractmainEntity;
 import com.inspur.cmis.entity.GcloancreditEntity;

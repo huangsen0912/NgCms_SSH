@@ -65,5 +65,9 @@
     <include file="cl/struts-cl-credit.xml"></include>
     <!--ci对公客户-->
     <include file="ci/struts-ci-custbase.xml"></include>
+    <!--ci凭证-->
+    <include file="ci/struts-ci-cert.xml"></include>
+    <!--贷款发放-->
+    <include file="gc/struts-gc-loan-iss.xml"></include>
 
 </struts>
