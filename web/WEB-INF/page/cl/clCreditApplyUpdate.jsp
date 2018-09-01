@@ -203,7 +203,7 @@
                 </c:if>
             </li>
 
-            <li>&nbsp;&nbsp;<input name="" type="submit" class="btn" value="确定"/>
+            <li>&nbsp;&nbsp;<input name="" id="subBtn"  type="submit" class="btn" value="确定"/>
                 &nbsp;&nbsp;&nbsp;&nbsp;
             </li>
         </ul>

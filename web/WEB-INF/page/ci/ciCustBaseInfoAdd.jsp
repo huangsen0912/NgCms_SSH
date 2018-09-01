@@ -138,7 +138,7 @@
                 <input id="modifyDate" name="entity.operdatetime" type="text" class="dfinput" value=""/>
             </li>
             <li>&nbsp;&nbsp;
-                <input name="" type="submit" class="btn" value="添加"/>
+                <input id="subBtn" name="" type="submit" class="btn" value="添加"/>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="reset" class="btn" value="重置"/>
             </li>

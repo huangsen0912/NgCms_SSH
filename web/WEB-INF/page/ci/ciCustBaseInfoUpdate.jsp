@@ -141,7 +141,7 @@
             </li>
 
             <li>&nbsp;&nbsp;
-                <input  type="submit" class="btn" value="修改"/>
+                <input  id="subBtn"  type="submit" class="btn" value="修改"/>
                 &nbsp;&nbsp;&nbsp;&nbsp;
         </ul>
 

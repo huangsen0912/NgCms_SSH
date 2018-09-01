@@ -59,7 +59,7 @@
             </li>
             <li>
                 <label>&nbsp;</label>
-                <input  type="submit" class="btn" value="添加"/>
+                <input  type="submit" id="subBtn"  class="btn" value="添加"/>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <input  type="reset" class="btn" value="重置"/>
             </li>

@@ -43,5 +43,9 @@ function formValueCheckTips(domId) {
             }
         }
     }
+    //禁用提交按钮
+    $("#subBtn").attr('disabled','disabled');
+    $("#subBtn").attr('disabled',true);
+
     return true;
 }

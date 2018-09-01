@@ -203,7 +203,7 @@
             </li>
 
             <li>&nbsp;&nbsp;
-                <input type="submit" class="btn" value="添加"/>
+                <input id="subBtn" type="submit" class="btn" value="添加"/>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="reset" class="btn" value="重置"/>
             </li>

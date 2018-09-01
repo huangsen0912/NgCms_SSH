@@ -156,10 +156,10 @@
                         <c:if test="${bustype=='02'}">
                             个人购房贷款
                         </c:if>
-                        <c:if test="${bustype=='02'}">
+                        <c:if test="${bustype=='03'}">
                             助学贷款
                         </c:if>
-                        <c:if test="${bustype=='02'}">
+                        <c:if test="${bustype=='04'}">
                             个人其他贷款
                         </c:if>
                     </td>

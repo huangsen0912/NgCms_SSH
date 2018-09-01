@@ -79,7 +79,7 @@
                 </li>
                 <li>
                     <label>&nbsp;</label>
-                    <input type="submit" class="scbtn" value="修改"/>
+                    <input type="submit" id="subBtn"  class="scbtn" value="修改"/>
                 </li>
             </ul>
 

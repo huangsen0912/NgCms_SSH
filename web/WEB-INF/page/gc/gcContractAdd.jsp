@@ -214,7 +214,7 @@
             </li>
 
             <li>&nbsp;&nbsp;
-                <input  type="submit" class="btn" value="添加"/>
+                <input id="subBtn"  type="submit" class="btn" value="添加"/>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="reset" class="btn" value="重置"/>
             </li>
@@ -240,9 +240,6 @@
 
 
     function checkForm() {
-        //检查表单
-        var flag =  formValueCheckTips('form');
-
         if($("#group").val()=='0'){
             layer.msg("请选择客户");
             return;
@@ -253,7 +250,15 @@
             return;
         }
 
+        //检查表单
+        var flag =  formValueCheckTips('form');
+
+
         if (flag){
+            //禁用提交按钮
+            $("#subBtn").attr('disabled','disabled');
+            $("#subBtn").attr('disabled',true);
+
             var fromData = $("#form").serialize();
             //请求接口
             postRequest('/contractAction_contractAdd.action',fromData,function (json) {
