@@ -16,11 +16,11 @@
 
 * 效果图：
 <br>
- ![登录页1](https://github.com/wanhao838088/NgCms_SSH/blob/master/pngs/login_1.png)
-<br>
- ![组管理页1](https://github.com/wanhao838088/NgCms_SSH/blob/master/pngs/group_add.png)
+ ![登录页1](https://raw.githubusercontent.com/wanhao838088/NgCms_SSH/master/pngs/login_1.png)
  <br>
- ![用户管理页1](https://github.com/wanhao838088/NgCms_SSH/blob/master/pngs/user_mana.png)
+ ![组管理页1](https://raw.githubusercontent.com/wanhao838088/NgCms_SSH/master/pngs/group_add.png)
+ <br>
+ ![用户管理页1](https://raw.githubusercontent.com/wanhao838088/NgCms_SSH/master/pngs/user_mana.png)
 
 ### 已经实现的模块有:
 
