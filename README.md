@@ -15,6 +15,13 @@
 数据库名称 popular_bank_dev
 
 * 效果图：
+<br>
+ ![登录页1](https://github.com/wanhao838088/NgCms_SSH/blob/master/pngs/login_1.png)
+<br>
+ ![组管理页1](https://github.com/wanhao838088/NgCms_SSH/blob/master/pngs/group_add.png)
+ <br>
+ ![用户管理页1](https://github.com/wanhao838088/NgCms_SSH/blob/master/pngs/user_mana.png)
+
 ### 已经实现的模块有:
 
 1.系统管理---->后台用户的增删改查 修改密码 用户禁用 用户删除
